@@ -1,0 +1,155 @@
+> who
+>> A=[1 2 3; 1 2 4]
+A =
+
+   1   2   3
+   1   2   4
+
+>> who
+Variables in the current scope:
+
+A
+
+>> whos
+Variables in the current scope:
+
+   Attr Name        Size                     Bytes  Class
+   ==== ====        ====                     =====  =====
+        A           2x3                         48  double
+
+Total is 6 elements using 48 bytes
+
+>> size(A,1)
+ans =  2
+>> size(A,2)
+ans =  3
+>> size(A,3)
+ans =  1
+>> size(A,4)
+ans =  1
+>> v = [1,2,3,4,5,6]
+v =
+
+   1   2   3   4   5   6
+
+>> v1=v[1:4]
+parse error:
+
+  syntax error
+
+>>> v1=v[1:4]
+        ^
+
+>> v1=v(1:4)
+v1 =
+
+   1   2   3   4
+
+>> v1
+v1 =
+
+   1   2   3   4
+
+>> whos
+Variables in the current scope:
+
+   Attr Name        Size                     Bytes  Class
+   ==== ====        ====                     =====  =====
+        A           2x3                         48  double
+        ans         1x1                          8  double
+        v           1x6                         48  double
+        v1          1x4                         32  double
+
+Total is 17 elements using 136 bytes
+
+>> save v.txt v -ascii
+v.txt has :  1.00000000e+00 2.00000000e+00 3.00000000e+00 4.00000000e+00 5.00000000e+00 6.00000000e+00
+
+>> A(1,2)
+ans =  2
+>> A(1,:)
+ans =
+
+   1   2   3
+
+>> A(:,1)
+ans =
+
+   1
+   1
+
+>> A
+A =
+
+   1   2   3
+   1   2   4
+
+>> A(:,1) = [2;2]
+A =
+
+   2   2   3
+   2   2   4
+          
+
+>> A = [A, [33;33]]
+A =
+
+    2    2    3   33
+    2    2    4   33
+
+% put all elements in a single vector
+>> A(:)
+ans =
+
+    2
+    2
+    2
+    2
+    3
+    4
+   33
+   33
+
+>> A=[1 2;2 3]
+A =
+
+   1   2
+   2   3
+
+>> B = [2 3;4 4]
+B =
+
+   2   3
+   4   4
+
+>> C = [A B]
+C =
+
+   1   2   2   3
+   2   3   4   4
+
+>> C = [A; B]
+C =
+
+   1   2
+   2   3
+   2   3
+   4   4
+
+>> C = eye(1)
+C =  1
+>> C = eye(3)
+C =
+
+Diagonal Matrix
+
+   1   0   0
+   0   1   0
+   0   0   1
+
+>> C = ones(3)
+C =
+
+   1   1   1
+   1   1   1
+   1   1   1
