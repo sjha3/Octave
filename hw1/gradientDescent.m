@@ -20,13 +20,17 @@ for iter = 1:num_iters
     err = prediction - y;
     theta(1) = theta(1) - (alpha * sum(err))/m;
     theta(2) = theta(2) - (alpha .* sum(err.* X(:,2)))/m;
-    %fprintf("theta : %f %f\n", theta(1), theta(2));
+    
+    % Note : Using vectorized way we can calculate theta as shown below:
+    %gradient = X'*err;
+    %theta = theta - (alpha * gradient)/m;
+    
 
     % ============================================================
 
     % Save the cost J in every iteration    
     J_history(iter) = computeCost(X, y, theta);
-    fprintf('J_history = %f\n', J_history(iter));
+    %fprintf('J_history = %f\n', J_history(iter));
 
 end
 
