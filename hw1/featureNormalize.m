@@ -28,17 +28,12 @@ sigma = zeros(1, size(X, 2));
 
 mu = mean(X);
 sigma = std(X)
-fprintf("mean : %f sigma : %f", mu, sigma);
+fprintf("mean : %f  %f", mu(1), mu(2));
+fprintf("sigma : %f  %f", sigma(1), sigma(2));
 X_mid = X - mu;
 
 X_norm(:,1) = X_mid(:,1) / sigma(1);
 X_norm(:,2) = X_mid(:,2) / sigma(2);
-
-%fprintf("%f \n",X_norm(:,1));
-%fprintf("*************************\n");
-%fprintf("*************************\n");
-%fprintf("%f \n",X_norm(:,2));
-
 
 % ============================================================
 

@@ -12,14 +12,11 @@ J = 0;
 % ====================== YOUR CODE HERE ======================
 % Instructions: Compute the cost of a particular choice of theta
 %               You should set J to the cost.
-fprintf("**********");
+
 m = size(X,2);
 prediction = X*theta;
 sqr_error = (prediction - y).^2;
 J = sum(sqr_error)/(2*m);
-fprintf("********** J = %f\n", J);
-
-
 
 
 % =========================================================================

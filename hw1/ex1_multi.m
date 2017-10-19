@@ -105,8 +105,11 @@ fprintf('\n');
 % Recall that the first column of X is all-ones. Thus, it does
 % not need to be normalized.
 price = 0; % You should change this
-
-
+X1 = [1650, 3];
+%[X1 mu sigma] = featureNormalize(X1);
+% Add intercept term to X
+X1 = [ones(1, 1) X1];
+price = X1*theta;
 % ============================================================
 
 fprintf(['Predicted price of a 1650 sq-ft, 3 br house ' ...

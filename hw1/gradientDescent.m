@@ -22,10 +22,10 @@ for iter = 1:num_iters
     theta(2) = theta(2) - (alpha .* sum(err.* X(:,2)))/m;
     
     % Note : Using vectorized way we can calculate theta as shown below:
+    %prediction = X*theta
     %gradient = X'*err;
     %theta = theta - (alpha * gradient)/m;
     
-
     % ============================================================
 
     % Save the cost J in every iteration    

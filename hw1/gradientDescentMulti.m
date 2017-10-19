@@ -8,7 +8,6 @@ m = length(y); % number of training examples
 J_history = zeros(num_iters, 1);
 diff = zeros(m, 1);
 num_features = size(X,2);
-fprintf("^^^^^^^^^^^^^^^^^^^^^^^^^^^");
 for iter = 1:num_iters
 
     % ====================== YOUR CODE HERE ======================
@@ -19,12 +18,14 @@ for iter = 1:num_iters
     %       of the cost function (computeCostMulti) and gradient here.
     %
     prediction = X*theta;
-    diff = prediction - y;
+    err = prediction - y;
+    gradient = X'*err;
+    theta = theta - (alpha * gradient)/m;
     %i = 1;
     %for i =  1:num_features
-    theta(1) = theta(1) - sum (diff);
-    theta(2) = theta(2) - sum (diff.* X(:,2));
-    theta(3) = theta(3) - sum (diff.* X(:,3));
+    %theta(1) = theta(1) - sum (diff);
+    %theta(2) = theta(2) - sum (diff.* X(:,2));
+    %theta(3) = theta(3) - sum (diff.* X(:,3));
     %fprintf("theta (%d) : %f", i, theta(i));
     %end
     % ============================================================
@@ -33,5 +34,5 @@ for iter = 1:num_iters
     J_history(iter) = computeCostMulti(X, y, theta);
 
 end
-fprintf("theta : %f %f %f", theta(1), theta(2), theta(3));
+
 end
