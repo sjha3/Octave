@@ -15,9 +15,8 @@ J = 0;
 
 m = size(X,2);
 prediction = X*theta;
-sqr_error = (prediction - y).^2;
-J = sum(sqr_error)/(2*m);
-
+error = (prediction - y);
+J = (error'*error)/(2*m);
 
 % =========================================================================
 

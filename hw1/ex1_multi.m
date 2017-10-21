@@ -90,15 +90,16 @@ theta = zeros(3, 1);
 [theta, J_history] = gradientDescentMulti(X, y, theta, alpha, num_iters);
 
 % Plot the convergence graph
-%figure;
-%plot(1:numel(J_history), J_history, '-b', 'LineWidth', 2);
-%xlabel('Number of iterations');
-%ylabel('Cost J');
+figure;
+plot(1:numel(J_history), J_history, '-b', 'LineWidth', 2);
+xlabel('Number of iterations');
+ylabel('Cost J');
 
 % Display gradient descent's result
 fprintf('Theta computed from gradient descent: \n');
 fprintf(' %f \n', theta);
 fprintf('\n');
+%fprintf('J : %f',J_history);
 
 % Estimate the price of a 1650 sq-ft, 3 br house
 % ====================== YOUR CODE HERE ======================
@@ -106,7 +107,8 @@ fprintf('\n');
 % not need to be normalized.
 price = 0; % You should change this
 X1 = [1650, 3];
-%[X1 mu sigma] = featureNormalize(X1);
+X1(1) = (X1(1) - mu(1))/sigma(1);
+X1(2) = (X1(2) - mu(2))/sigma(2);
 % Add intercept term to X
 X1 = [ones(1, 1) X1];
 price = X1*theta;
@@ -153,7 +155,9 @@ fprintf('\n');
 % Estimate the price of a 1650 sq-ft, 3 br house
 % ====================== YOUR CODE HERE ======================
 price = 0; % You should change this
-
+X1 = [1650, 3];
+X1 = [ones(1, 1) X1];
+price = X1*theta;
 
 % ============================================================
 

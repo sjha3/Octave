@@ -23,10 +23,10 @@ for iter = 1:num_iters
     theta = theta - (alpha * gradient)/m;
     %i = 1;
     %for i =  1:num_features
-    %theta(1) = theta(1) - sum (diff);
-    %theta(2) = theta(2) - sum (diff.* X(:,2));
-    %theta(3) = theta(3) - sum (diff.* X(:,3));
-    %fprintf("theta (%d) : %f", i, theta(i));
+    %theta(1) = theta(1) - sum (err);
+    %theta(2) = theta(2) - sum (err.* X(:,2));
+    %theta(3) = theta(3) - sum (err.* X(:,3));
+    %fprintf("theta %f %f %f \n", theta(1), theta(2), theta(3));
     %end
     % ============================================================
 
